@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess The Number</title>
+
+</head>
+<body>
+
+<script>
+
+  let n = 3
+  let attempt = 0
+
+  while(true){
+    let userInput = prompt("Guess the number between 1 and 10")
+    attempt++
+    if(userInput > n){
+      alert("Too high")
+    }else if(userInput < n){
+      alert("Too low")
+    }else{
+      alert(`You guessed it in ${attempt} attempts!`)
+      break;
+    }
+  }
+
+</script>
+
+</body>
+</html>

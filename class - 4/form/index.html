@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+</head>
+<body>
+
+  <section class="form">
+    <form>
+      <div class="data-container">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="nameValue">
+      </div>
+
+      <button type="submit">Add</button>
+    </form>
+  </section>
+
+  <hr>
+
+  <section class="table">
+    <table id="userTable" border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+
+
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Vijayanand</td>
+          <td>
+            <button onclick="deleteBtn(this)">Del</button>
+          </td>
+        </tr>
+
+        <!-- <tr>
+          <td>Vijayanand</td>
+          <td>
+            <button>Del</button>
+          </td>
+        </tr> -->
+
+
+        <!-- Data rows will be added here -->
+      </tbody>
+    </table>
+
+
+  </section>
+
+  <script>
+    // const nameInput = document.getElementById("name")
+    const form = document.querySelector("form")
+    const submitBtn = document.querySelector("button")
+
+    const table = document.getElementById("userTable").getElementsByTagName("tbody")[0]
+
+    function deleteBtn(btn){
+      btn.parentElement.parentElement.remove()
+    }k
+
+
+    submitBtn.addEventListener("click",(e)=>{
+      e.preventDefault()
+
+      const formInfo = new FormData(form)
+
+      let user = {
+        name: formInfo.get("nameValue")
+      }
+
+      const row = table.insertRow()
+
+      row.innerHTML= `
+        <td>${user.name}</td>
+        <td>
+          <button onclick="deleteBtn(this)">Del</button>
+        </td>
+      `
+
+    })
+  </script>
+
+</body>
+</html>
