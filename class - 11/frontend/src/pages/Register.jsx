@@ -27,7 +27,7 @@ const Register = () => {
     // setDatas(prev => [...prev, newUser])
 
    try {
-     const res = await axios.post("http://localhost:3000/register", newUser)
+     const res = await axios.post("https://emc-b27.onrender.com/register", newUser)
 
     console.log("Response from server", res)
 
